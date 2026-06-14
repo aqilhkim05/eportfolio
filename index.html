@@ -11,61 +11,108 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background: #f4f4f6;
+      background: #f0f4f8;
       color: #1a1a1a;
       line-height: 1.6;
     }
 
     /* Header */
     .port-header {
-      background: #534AB7;
-      padding: 56px 32px 48px;
+      background: #0a1f4d;
+      padding: 52px 32px 44px;
       text-align: center;
+      position: relative;
+      overflow: hidden;
     }
-    .avatar {
-      width: 72px; height: 72px; border-radius: 50%;
-      background: #AFA9EC;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 22px; font-weight: 500; color: #26215C;
-      margin: 0 auto 16px;
+    .port-header::before {
+      content: '';
+      position: absolute;
+      top: -60px; left: -60px;
+      width: 220px; height: 220px;
+      background: #1a3a7a;
+      border-radius: 50%;
+      opacity: 0.4;
     }
-    .port-header h1 { font-size: 26px; font-weight: 500; color: #EEEDFE; margin-bottom: 6px; }
-    .port-header p { font-size: 15px; color: #AFA9EC; }
+    .port-header::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; right: -40px;
+      width: 280px; height: 280px;
+      background: #1a3a7a;
+      border-radius: 50%;
+      opacity: 0.3;
+    }
+    .port-header h1 {
+      font-size: 30px; font-weight: 500;
+      color: #dbeafe; margin-bottom: 6px;
+      position: relative; z-index: 1;
+      letter-spacing: -0.3px;
+    }
+    .port-header p {
+      font-size: 14px; color: #60a5fa;
+      position: relative; z-index: 1;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .header-line {
+      width: 40px; height: 3px;
+      background: #3b82f6;
+      border-radius: 2px;
+      margin: 14px auto 0;
+      position: relative; z-index: 1;
+    }
 
     /* Nav */
     nav {
       display: flex; flex-wrap: wrap; gap: 6px;
       background: #fff;
-      border-bottom: 1px solid #e8e8e8;
+      border-bottom: 1px solid #e2e8f0;
       padding: 12px 24px;
       position: sticky; top: 0; z-index: 100;
       justify-content: center;
     }
     nav a {
-      text-decoration: none; color: #666; font-size: 13px;
-      padding: 5px 12px; border-radius: 20px; border: 1px solid #e0e0e0;
-      transition: background 0.2s, color 0.2s;
+      text-decoration: none; color: #64748b;
+      font-size: 12px; font-weight: 500;
+      padding: 5px 13px; border-radius: 20px;
+      border: 1px solid #e2e8f0;
+      transition: all 0.2s;
+      letter-spacing: 0.3px;
     }
-    nav a:hover { background: #534AB7; color: #fff; border-color: #534AB7; }
+    nav a:hover { background: #0a1f4d; color: #dbeafe; border-color: #0a1f4d; }
 
     /* Main */
-    main { max-width: 900px; margin: 0 auto; padding: 32px 20px 48px; }
+    main { max-width: 920px; margin: 0 auto; padding: 32px 20px 56px; }
 
     /* Sections */
     .section {
       background: #fff;
-      border: 1px solid #e8e8e8;
-      border-radius: 14px;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
       padding: 28px;
       margin-bottom: 20px;
     }
-    .section-title {
-      font-size: 16px; font-weight: 500;
-      color: #1a1a1a;
-      margin-bottom: 20px;
-      display: flex; align-items: center; gap: 10px;
+    .section-top {
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 22px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #f1f5f9;
     }
-    .section-title i { font-size: 20px; color: #7F77DD; }
+    .section-icon {
+      width: 36px; height: 36px;
+      background: #e6f1fb;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .section-icon i { font-size: 18px; color: #0a1f4d; }
+    .section-title { font-size: 16px; font-weight: 500; color: #0f172a; }
+    .section-badge {
+      font-size: 11px; font-weight: 500;
+      color: #185fa5; background: #e6f1fb;
+      padding: 3px 10px; border-radius: 20px;
+      margin-left: auto;
+    }
 
     /* Profile */
     .profile-grid {
@@ -74,95 +121,102 @@
       gap: 10px; margin-bottom: 16px;
     }
     .profile-pill {
-      background: #f8f8f8;
-      border: 1px solid #e8e8e8;
-      border-radius: 10px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
       padding: 12px 14px;
     }
     .profile-pill .plabel {
-      font-size: 10px; color: #999;
-      text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 3px;
+      font-size: 10px; color: #94a3b8;
+      text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 4px;
     }
-    .profile-pill .pval { font-size: 14px; font-weight: 500; color: #1a1a1a; }
+    .profile-pill .pval { font-size: 14px; font-weight: 500; color: #0f172a; }
     .intro-box {
-      background: #EEEDFE;
-      border-left: 3px solid #7F77DD;
-      border-radius: 0 10px 10px 0;
-      padding: 14px 16px;
+      background: #e6f1fb;
+      border-left: 3px solid #185fa5;
+      border-radius: 0 12px 12px 0;
+      padding: 14px 18px;
     }
-    .intro-box p { font-size: 14px; color: #3C3489; line-height: 1.6; margin-bottom: 6px; }
+    .intro-box p { font-size: 14px; color: #0c447c; line-height: 1.6; margin-bottom: 5px; }
     .intro-box p:last-child { margin-bottom: 0; }
 
     /* Lab layout */
     .lab-layout {
       display: grid;
-      grid-template-columns: 180px 1fr;
-      gap: 20px; align-items: start;
+      grid-template-columns: 160px 1fr;
+      gap: 24px; align-items: start;
     }
     .img-col { display: flex; flex-direction: column; gap: 8px; }
     .img-placeholder {
       width: 100%; aspect-ratio: 9/16;
-      background: #f4f4f6;
-      border: 1px solid #e8e8e8;
-      border-radius: 10px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
       display: flex; flex-direction: column;
       align-items: center; justify-content: center; gap: 6px;
     }
-    .img-placeholder img { width: 100%; height: 100%; object-fit: cover; border-radius: 10px; }
-    .img-placeholder i { font-size: 26px; color: #ccc; }
-    .img-placeholder span { font-size: 11px; color: #bbb; }
+    .img-placeholder img { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; }
+    .img-placeholder i { font-size: 28px; color: #cbd5e1; }
+    .img-placeholder span { font-size: 11px; color: #94a3b8; }
     .lab-subtitle {
-      font-size: 11px; color: #999;
-      text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;
+      font-size: 10px; color: #94a3b8;
+      text-transform: uppercase; letter-spacing: 0.6px;
+      margin-bottom: 8px; font-weight: 500;
     }
-    .lab-desc { font-size: 14px; color: #555; line-height: 1.6; margin-bottom: 14px; }
-    .btn-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+    .lab-desc { font-size: 14px; color: #475569; line-height: 1.65; margin-bottom: 16px; }
+    .btn-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
     .btn-primary {
       display: inline-flex; align-items: center; gap: 6px;
-      background: #534AB7; color: #EEEDFE;
+      background: #0a1f4d; color: #dbeafe;
       text-decoration: none; font-size: 13px; font-weight: 500;
-      padding: 8px 14px; border-radius: 8px;
+      padding: 8px 16px; border-radius: 9px;
       transition: background 0.2s;
     }
-    .btn-primary:hover { background: #3C3489; }
+    .btn-primary:hover { background: #0f2d6b; }
+    .btn-primary i { font-size: 15px; }
     .btn-secondary {
       display: inline-flex; align-items: center; gap: 6px;
-      background: #f4f4f6; color: #555;
+      background: #f8fafc; color: #475569;
       text-decoration: none; font-size: 13px; font-weight: 500;
-      padding: 8px 14px; border-radius: 8px;
-      border: 1px solid #e0e0e0;
+      padding: 8px 16px; border-radius: 9px;
+      border: 1px solid #e2e8f0;
       transition: background 0.2s;
     }
-    .btn-secondary:hover { background: #ebebeb; }
+    .btn-secondary:hover { background: #f1f5f9; }
+    .btn-secondary i { font-size: 15px; }
     .reflection {
-      background: #FAEEDA;
-      border-left: 3px solid #EF9F27;
-      border-radius: 0 8px 8px 0;
-      padding: 12px 14px;
+      background: #fffbf2;
+      border: 1px solid #fde68a;
+      border-radius: 12px;
+      padding: 14px 16px;
     }
     .reflection .rlabel {
-      font-size: 10px; font-weight: 500; color: #633806;
-      text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px;
+      font-size: 10px; font-weight: 500; color: #92400e;
+      text-transform: uppercase; letter-spacing: 0.6px;
+      margin-bottom: 5px;
+      display: flex; align-items: center; gap: 5px;
     }
-    .reflection p { font-size: 13px; color: #854F0B; line-height: 1.5; }
-    .tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+    .reflection .rlabel i { font-size: 13px; }
+    .reflection p { font-size: 13px; color: #78350f; line-height: 1.55; }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
     .tag {
-      background: #EEEDFE; color: #3C3489;
+      background: #e6f1fb; color: #0c447c;
       font-size: 12px; font-weight: 500;
-      padding: 4px 10px; border-radius: 20px;
+      padding: 4px 11px; border-radius: 20px;
     }
 
     /* Footer */
     footer {
-      text-align: center; padding: 32px;
-      font-size: 13px; color: #aaa;
+      text-align: center; padding: 36px;
+      font-size: 13px; color: #94a3b8;
+      letter-spacing: 0.3px;
     }
 
     /* Responsive */
     @media (max-width: 560px) {
       .lab-layout { grid-template-columns: 1fr; }
       .port-header { padding: 40px 20px 36px; }
-      nav { padding: 10px 16px; }
+      nav { padding: 10px 14px; }
       main { padding: 20px 14px 40px; }
     }
   </style>
@@ -170,9 +224,9 @@
 <body>
 
 <div class="port-header">
-  <div class="avatar">AH</div>
   <h1>Aqil Hakim</h1>
   <p>Android Development e-Portfolio</p>
+  <div class="header-line"></div>
 </div>
 
 <nav>
@@ -190,7 +244,10 @@
 
   <!-- PROFILE -->
   <div id="profile" class="section">
-    <div class="section-title"><i class="ti ti-user"></i> Student profile</div>
+    <div class="section-top">
+      <div class="section-icon"><i class="ti ti-user"></i></div>
+      <span class="section-title">Student profile</span>
+    </div>
     <div class="profile-grid">
       <div class="profile-pill"><div class="plabel">Name</div><div class="pval">Aqil Hakim</div></div>
       <div class="profile-pill"><div class="plabel">Matric no.</div><div class="pval">A211301</div></div>
@@ -205,7 +262,11 @@
 
   <!-- LAB 1 -->
   <div id="lab1" class="section">
-    <div class="section-title"><i class="ti ti-device-mobile"></i> Lab 1 — UI fundamentals</div>
+    <div class="section-top">
+      <div class="section-icon"><i class="ti ti-device-mobile"></i></div>
+      <span class="section-title">Lab 1 — UI fundamentals</span>
+      <span class="section-badge">Lab</span>
+    </div>
     <div class="lab-layout">
       <div class="img-col">
         <div class="img-placeholder">
@@ -220,7 +281,7 @@
           <a href="https://youtu.be/rpSqIMYhysY" class="btn-primary"><i class="ti ti-player-play"></i> Watch video</a>
         </div>
         <div class="reflection">
-          <div class="rlabel">Reflection</div>
+          <div class="rlabel"><i class="ti ti-message"></i> Reflection</div>
           <p>I struggled with UI alignment and learned how layouts affect design.</p>
         </div>
       </div>
@@ -229,10 +290,17 @@
 
   <!-- LAB 2 -->
   <div id="lab2" class="section">
-    <div class="section-title"><i class="ti ti-cursor-text"></i> Lab 2 — User interaction</div>
+    <div class="section-top">
+      <div class="section-icon"><i class="ti ti-cursor-text"></i></div>
+      <span class="section-title">Lab 2 — User interaction</span>
+      <span class="section-badge">Lab</span>
+    </div>
     <div class="lab-layout">
       <div class="img-col">
-       <div class="img-placeholder"><img src="images/lab2.2app.png" alt="Lab 2 screenshot 2" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div style="display:none;flex-direction:column;align-items:center;gap:6px;"><i class="ti ti-photo"></i><span>lab2.2app.png</span></div></div>
+        <div class="img-placeholder">
+          <img src="images/lab2.2app.png" alt="Lab 2 screenshot" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" style="display:block">
+          <div style="display:none; flex-direction:column; align-items:center; gap:6px;"><i class="ti ti-photo"></i><span>lab2.2app.png</span></div>
+        </div>
       </div>
       <div>
         <div class="lab-subtitle">Handling user input</div>
@@ -241,7 +309,7 @@
           <a href="https://youtu.be/X9l1WhDxyU4" class="btn-primary"><i class="ti ti-player-play"></i> Watch video</a>
         </div>
         <div class="reflection">
-          <div class="rlabel">Reflection</div>
+          <div class="rlabel"><i class="ti ti-message"></i> Reflection</div>
           <p>Handling user input was confusing at first but improved with practice.</p>
         </div>
       </div>
@@ -250,10 +318,17 @@
 
   <!-- LAB 3 -->
   <div id="lab3" class="section">
-    <div class="section-title"><i class="ti ti-palette"></i> Lab 3 — Material design</div>
+    <div class="section-top">
+      <div class="section-icon"><i class="ti ti-palette"></i></div>
+      <span class="section-title">Lab 3 — Material design</span>
+      <span class="section-badge">Lab</span>
+    </div>
     <div class="lab-layout">
       <div class="img-col">
-        <div class="img-placeholder"><img src="images/lab3app.png" alt="Lab 3 screenshot" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div style="display:none;flex-direction:column;align-items:center;gap:6px;"><i class="ti ti-photo"></i><span>lab3app.png</span></div></div>
+        <div class="img-placeholder">
+          <img src="images/lab3app.png" alt="Lab 3 screenshot" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" style="display:block">
+          <div style="display:none; flex-direction:column; align-items:center; gap:6px;"><i class="ti ti-photo"></i><span>lab3app.png</span></div>
+        </div>
       </div>
       <div>
         <div class="lab-subtitle">Applying material design</div>
@@ -262,7 +337,7 @@
           <a href="https://youtu.be/_TtFfBJ-zP8" class="btn-primary"><i class="ti ti-player-play"></i> Watch video</a>
         </div>
         <div class="reflection">
-          <div class="rlabel">Reflection</div>
+          <div class="rlabel"><i class="ti ti-message"></i> Reflection</div>
           <p>Learned how consistent design improves user experience.</p>
         </div>
       </div>
@@ -271,10 +346,17 @@
 
   <!-- LAB 4 -->
   <div id="lab4" class="section">
-    <div class="section-title"><i class="ti ti-layout-sidebar"></i> Lab 4 — Navigation</div>
+    <div class="section-top">
+      <div class="section-icon"><i class="ti ti-layout-sidebar"></i></div>
+      <span class="section-title">Lab 4 — Navigation</span>
+      <span class="section-badge">Lab</span>
+    </div>
     <div class="lab-layout">
       <div class="img-col">
-        <div class="img-placeholder"><img src="images/lab4.2app.png" alt="Lab 4 screenshot 2" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div style="display:none;flex-direction:column;align-items:center;gap:6px;"><i class="ti ti-photo"></i><span>lab4.2app.png</span></div></div>
+        <div class="img-placeholder">
+          <img src="images/lab4.2app.png" alt="Lab 4 screenshot" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" style="display:block">
+          <div style="display:none; flex-direction:column; align-items:center; gap:6px;"><i class="ti ti-photo"></i><span>lab4.2app.png</span></div>
+        </div>
       </div>
       <div>
         <div class="lab-subtitle">App navigation patterns</div>
@@ -283,7 +365,7 @@
           <a href="https://youtu.be/LliW0TpUtn8" class="btn-primary"><i class="ti ti-player-play"></i> Watch video</a>
         </div>
         <div class="reflection">
-          <div class="rlabel">Reflection</div>
+          <div class="rlabel"><i class="ti ti-message"></i> Reflection</div>
           <p>Navigation structure was tricky but critical for usability.</p>
         </div>
       </div>
@@ -292,10 +374,17 @@
 
   <!-- LAB 5 -->
   <div id="lab5" class="section">
-    <div class="section-title"><i class="ti ti-database"></i> Lab 5 — Room database</div>
+    <div class="section-top">
+      <div class="section-icon"><i class="ti ti-database"></i></div>
+      <span class="section-title">Lab 5 — Room database</span>
+      <span class="section-badge">Lab</span>
+    </div>
     <div class="lab-layout">
       <div class="img-col">
-        <div class="img-placeholder"><img src="images/lab5.2app.png" alt="Lab 5 screenshot 2" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div style="display:none;flex-direction:column;align-items:center;gap:6px;"><i class="ti ti-photo"></i><span>lab5.2app.png</span></div></div>
+        <div class="img-placeholder">
+          <img src="images/lab5.2app.png" alt="Lab 5 screenshot" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" style="display:block">
+          <div style="display:none; flex-direction:column; align-items:center; gap:6px;"><i class="ti ti-photo"></i><span>lab5.2app.png</span></div>
+        </div>
       </div>
       <div>
         <div class="lab-subtitle">Local data persistence</div>
@@ -304,7 +393,7 @@
           <a href="https://youtu.be/euTcKB1FgEA" class="btn-primary"><i class="ti ti-player-play"></i> Watch video</a>
         </div>
         <div class="reflection">
-          <div class="rlabel">Reflection</div>
+          <div class="rlabel"><i class="ti ti-message"></i> Reflection</div>
           <p>Learned how local database works using Room.</p>
         </div>
       </div>
@@ -313,10 +402,17 @@
 
   <!-- PROJECT 1 -->
   <div id="project1" class="section">
-    <div class="section-title"><i class="ti ti-rocket"></i> Project 1 — Task manager app</div>
+    <div class="section-top">
+      <div class="section-icon"><i class="ti ti-rocket"></i></div>
+      <span class="section-title">Project 1 — Task manager app</span>
+      <span class="section-badge">Project</span>
+    </div>
     <div class="lab-layout">
       <div class="img-col">
-         <div class="img-placeholder"><img src="images/Project1.2app.png" alt="Project 1 screenshot 2" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div style="display:none;flex-direction:column;align-items:center;gap:6px;"><i class="ti ti-photo"></i><span>Project1.2app.png</span></div></div>
+        <div class="img-placeholder">
+          <img src="images/Project1.2app.png" alt="Project 1 screenshot" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" style="display:block">
+          <div style="display:none; flex-direction:column; align-items:center; gap:6px;"><i class="ti ti-photo"></i><span>Project1.2app.png</span></div>
+        </div>
       </div>
       <div>
         <div class="lab-subtitle">Problem statement</div>
@@ -331,7 +427,7 @@
           <a href="https://github.com/aqilhkim05/A211301_Nelson_Project1" class="btn-secondary"><i class="ti ti-brand-github"></i> GitHub repo</a>
         </div>
         <div class="reflection">
-          <div class="rlabel">Lessons learned</div>
+          <div class="rlabel"><i class="ti ti-bulb"></i> Lessons learned</div>
           <p>Improved my understanding of navigation and UI flow.</p>
         </div>
       </div>
@@ -340,11 +436,18 @@
 
   <!-- PROJECT 2 -->
   <div id="project2" class="section">
-    <div class="section-title"><i class="ti ti-heart-rate-monitor"></i> Project 2 — Health monitor</div>
+    <div class="section-top">
+      <div class="section-icon"><i class="ti ti-heart-rate-monitor"></i></div>
+      <span class="section-title">Project 2 — Health monitor</span>
+      <span class="section-badge">Project</span>
+    </div>
     <div class="lab-layout">
       <div class="img-col">
-        <div class="img-placeholder"><img src="images/Project2.1app.png" alt="Project 2 screenshot 1" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div style="display:none;flex-direction:column;align-items:center;gap:6px;"><i class="ti ti-photo"></i><span>Project2.1app.png</span></div></div>
+        <div class="img-placeholder">
+          <img src="images/Project2.1app.png" alt="Project 2 screenshot" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" style="display:block">
+          <div style="display:none; flex-direction:column; align-items:center; gap:6px;"><i class="ti ti-photo"></i><span>Project2.1app.png</span></div>
         </div>
+      </div>
       <div>
         <div class="lab-subtitle">Problem statement</div>
         <p class="lab-desc">Users need real-time health monitoring with smart alerts and data synchronization.</p>
@@ -359,7 +462,7 @@
           <a href="https://github.com/aqilhkim05/A211301_Nelson_Project2" class="btn-secondary"><i class="ti ti-brand-github"></i> GitHub repo</a>
         </div>
         <div class="reflection">
-          <div class="rlabel">Lessons learned</div>
+          <div class="rlabel"><i class="ti ti-bulb"></i> Lessons learned</div>
           <p>Learned to integrate multiple systems into one cohesive app.</p>
         </div>
       </div>
